@@ -41,7 +41,9 @@ module.exports.create = (event, context, callback) => {
             text: todoItem.text,
             completed: false,
             created: timestamp,
-            updated: timestamp
+            category: "",
+            wod: "",
+            score: ""
         },
     };
 
