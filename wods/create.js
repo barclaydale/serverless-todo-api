@@ -34,7 +34,7 @@ module.exports.create = (event, context, callback) => {
 
     const timestamp = Math.floor(new Date() / 1000);
     const params = {
-        TableName: process.env.TODOS_TABLE,
+        TableName: process.env.WODS_TABLE,
         Item: {
             user: event.headers["x-api-key"],
             id: uuid.v1(),

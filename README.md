@@ -1,9 +1,9 @@
-# Todo Service built with NodeJS using Serverless Framework, running on AWS Lambda
+# todo Service built with NodeJS using Serverless Framework, running on AWS Lambda
 
 [![Build Status](https://travis-ci.com/kraigh/serverless-todo-api.svg?branch=master)](https://travis-ci.com/kraigh/serverless-todo-api)
 ![Code Quality](https://sonarcloud.io/api/project_badges/measure?project=kraigh_serverless-todo-api&metric=alert_status)
 
-![Serverless Todo Service Architecture](images/sls_todo_architecture.png "Serverless Todo Service Architecture")
+![Serverless todo Service Architecture](images/sls_todo_architecture.png "Serverless todo Service Architecture")
 
 # Running Locally
 
@@ -11,7 +11,7 @@
 * Install Node.js : [https://nodejs.org/en/download/](https://nodejs.org/en/download/)
 * Install Serverless Framework: `npm install -g serverless`
 
-## Get the Serverless Todo Service project
+## Get the Serverless todo Service project
 * Clone Github project : [https://github.com/kraigh/serverless-todo-api](https://github.com/kraigh/serverless-todo-api)
 * Alternatively, you can install the service locally from Github using the serverless command: `serverless install --url https://github.com/kraigh/serverless-todo-api`
 * Install module dependencies: `npm install`
@@ -22,12 +22,12 @@
 
 ## Test locally
 * Install dynamodb local: `serverless dynamodb install`
-* Start Todo Service in offline mode: `serverless offline start`
+* Start todo Service in offline mode: `serverless offline start`
 * Test the REST APIs @ [http://localhost:4000](http://localhost:4000)
 * Test the functions by invoking them locally. E.g. `serverless invoke local -f list`
 
 ## Deploy serverless todo service
-* Deploy the Todo Service to AWS Lambda: `serverless deploy`
+* Deploy the todo Service to AWS Lambda: `serverless deploy`
 
 ## Test deployed functions
 * Test the APIs of the deployed service using a REST client. API endpoints can be obtained using the command `serverless info`

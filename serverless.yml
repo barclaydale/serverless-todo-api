@@ -1,6 +1,6 @@
 
 # Name of the service
-service: cse204-todo-api
+service: cse204-wod-api
 
 # Plugins enhancing serverless framework
 plugins:
@@ -43,11 +43,11 @@ custom:
       inMemory: true
       migrate: true
       seed: true
-    # Seed data for local todo table
+    # Seed data for local wod table
     seed:
-      todo:
+      wod:
         sources:
-          - table: ${self:service}-todo-store
+          - table: ${self:service}-wod-store
             sources: [./offline/seeds/data.json]
       
 # Configure AWS as provider
@@ -56,7 +56,7 @@ provider:
   runtime: nodejs8.10
   # Name of dynamo db table used to store WODS
   environment: 
-    WODS_TABLE: ${self:service}-todo-store
+    WODS_TABLE: ${self:service}-wod-store
   # Roles required to operate on the dynamo db table
   iamRoleStatements:
     - Effect: Allow
@@ -126,7 +126,7 @@ functions:
 # Confiure the resources required for this service: AWS Dynamo DB Table
 resources:
   Resources:
-    TodoTable:
+    WodTable:
       Type: AWS::DynamoDB::Table
       Properties:
         AttributeDefinitions: 
