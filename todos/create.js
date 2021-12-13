@@ -40,10 +40,7 @@ module.exports.create = (event, context, callback) => {
             id: uuid.v1(),
             text: todoItem.text,
             completed: false,
-            created: timestamp,
-            category: "",
-            wod: "",
-            score: ""
+            created: timestamp
         },
     };
 

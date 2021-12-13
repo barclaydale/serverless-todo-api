@@ -54,9 +54,9 @@ custom:
 provider:
   name: aws
   runtime: nodejs8.10
-  # Name of dynamo db table used to store ToDos
+  # Name of dynamo db table used to store WODS
   environment: 
-    TODOS_TABLE: ${self:service}-todo-store
+    WODS_TABLE: ${self:service}-todo-store
   # Roles required to operate on the dynamo db table
   iamRoleStatements:
     - Effect: Allow
@@ -68,7 +68,7 @@ provider:
         - dynamodb:PutItem
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
-      Resource: "arn:aws:dynamodb:us-east-1:*:table/${self:provider.environment.TODOS_TABLE}"
+      Resource: "arn:aws:dynamodb:us-east-1:*:table/${self:provider.environment.WODS_TABLE}"
     - Effect: Allow
       Action:
         - apigateway:POST
@@ -81,42 +81,42 @@ provider:
 # FaaS funtions
 functions:
   create:
-    handler: todos/create.create
+    handler: wods/create.create
     # Configuring HTTP events to link API Gateway to Lambda
     events:
       - http:
-          path: todos
+          path: todwodsos
           method: POST
           cors: true
   get:
-    handler: todos/get.get
+    handler: wods/get.get
     events:
       - http:
-          path: todos/{id}
+          path: wods/{id}
           method: GET
           cors: true
   update:
-    handler: todos/update.update
+    handler: wods/update.update
     events:    
       - http:
-          path: todos/{id}
+          path: wods/{id}
           method: PUT
           cors: true
   delete:
-    handler: todos/delete.delete          
+    handler: wods/delete.delete          
     events:    
       - http:
-          path: todos/{id}
+          path: wods/{id}
           method: DELETE
           cors: true 
   list:
-    handler: todos/list.list          
+    handler: wods/list.list          
     events:    
       - http:
-          path: todos
+          path: wods
           method: GET
   apiKey:
-    handler: todos/apiKey.create
+    handler: wods/apiKey.create
     events:
       - http:
           path: apiKey
@@ -146,7 +146,7 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
-        TableName: ${self:provider.environment.TODOS_TABLE}
+        TableName: ${self:provider.environment.WODS_TABLE}
     StaticSite:
       Type: AWS::S3::Bucket
       Properties:
